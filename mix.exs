@@ -23,7 +23,7 @@ defmodule Agala.Provider.Telegram.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:agala, "~> 2.5"},
+      {:agala, github: "IT-CTI/agala", branch: "2.5"},
       {:httpoison, "~> 1.2"},
       {:hackney, "~> 1.13"},
       {:poison, "~> 3.1"},
