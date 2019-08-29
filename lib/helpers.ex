@@ -178,4 +178,18 @@ defmodule Agala.Provider.Telegram.Helpers do
     })
     |> perform_request()
   end
+
+  @spec send_answer_callback(conn :: Agala.Conn.t(), callback_query_id :: String.t(), opts :: Enum.t()) ::
+          Agala.Conn.t()
+  def send_answer_callback(conn, callback_query_id, opts \\ []) do
+    Map.put(conn, :response, %Response{
+      method: :post,
+      payload: %{
+        url: base_url("/answerCallbackQuery"),
+        body: create_body(%{callback_query_id: callback_query_id}, opts),
+        headers: [{"Content-Type", "application/json"}]
+      }
+    })
+    |> perform_request()
+  end
 end
